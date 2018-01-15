@@ -1,14 +1,14 @@
 {
   "name": "demo1",
   "version": "1.0.0",
-  "description": "",
+  "description": "Webpack 3.x 教程",
   "main": "index.js",
   "scripts": {
     "server": "webpack-dev-server --open",
     "dev": "set type=dev&webpack",
     "build": "set type=build&webpack"
   },
-  "author": "",
+  "author": "Rain120",
   "license": "ISC",
   "devDependencies": {
     "autoprefixer": "^7.2.5",

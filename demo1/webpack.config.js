@@ -5,6 +5,7 @@ const extractTextPlugin = require('extract-text-webpack-plugin')
 const glob = require('glob')
 const purifyCssPlugin = require('purifycss-webpack')
 const webpack = require('webpack')
+const copyWebpackPlugin= require("copy-webpack-plugin");
 
 if(process.env.type == "build") {
   const webSite = {
@@ -96,6 +97,7 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new uglify(),
     new htmlPlugin({
       minify: {
@@ -113,7 +115,11 @@ module.exports = {
       name: ['juqery', 'vue'],
       filename: 'assets/js/[name].js',
       minChunks: 2
-    })
+    }),
+    new copyWebpackPlugin([{
+      from: __dirname + '/src/public',
+      to: './public'
+    }])
   ],
   devServer: {
     contentBase: path.resolve(__dirname, 'dist'),
